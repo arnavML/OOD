@@ -1,4 +1,4 @@
-package Sem3.Model.Logic;
+package Sem3.integration;
 
 import Sem3.Model.Domain.Customer;
 

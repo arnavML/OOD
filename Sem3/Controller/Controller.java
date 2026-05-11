@@ -4,9 +4,9 @@ import Sem3.Model.DTOs.*;
 import Sem3.Model.Domain.Bike;
 import Sem3.Model.Domain.Customer;
 import Sem3.Model.Domain.RepairOrder;
-import Sem3.Model.Logic.CustomerRegistry;
-import Sem3.Model.Logic.RepairOrderRegistry;
 import Sem3.View.Printer;
+import Sem3.integration.CustomerRegistry;
+import Sem3.integration.RepairOrderRegistry;
 import Sem3.Model.Mapper.*;
 
 public class Controller { //The Controller class is responsible for handling the logic of the application, including searching for customers, creating repair orders, and managing the details of the repair orders. It interacts with the CustomerRegistry to find customers, the RepairOrderRegistry to manage repair orders, and the Printer to print repair order details. It also stores the currently selected customer and repair order to facilitate getting their details without having to search for them again.
