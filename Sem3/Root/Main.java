@@ -14,7 +14,6 @@ public class Main { //The Main class is the entry point of the application. It i
     private static Printer printer = new Printer();
 
     public static void main(String[] args) { //Boots up the system by initializing the controller and view, and then starts the view to perform search
-        System.out.println("System is starting...");
         controller = new Controller(customerRegistry, repairOrderRegistry, printer);
         view = new Viewer(controller);
         view.Start(); // Start the view to accept user input and perform search // Can also start itself in initialization, but this way there have more control over when it starts for future use

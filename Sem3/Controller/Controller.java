@@ -1,10 +1,9 @@
 package Sem3.Controller;
 
-import Sem3.Model.DTOs.CustomerDTO;
+import Sem3.Model.DTOs.*;
 import Sem3.Model.Domain.Bike;
 import Sem3.Model.Domain.Customer;
 import Sem3.Model.Domain.RepairOrder;
-import Sem3.Model.Domain.RepairTask;
 import Sem3.Model.Logic.CustomerRegistry;
 import Sem3.Model.Logic.RepairOrderRegistry;
 import Sem3.View.Printer;
@@ -59,5 +58,31 @@ public class Controller { //The Controller class is responsible for handling the
         this.repairOrder = newRepairOrder;
     }
 
+    public RepairOrderDTO getRepairOrderDetails() { //Gets the details of the current repair order and returns it as a RepairOrderDTO. This is used in the View to display the details of the repair order after it has been created.
+        return RepairOrderMapper.toDTO(repairOrder);
+    }
+
+    private RepairOrder findRepairOrderByCustomerNumber(int number) { //Finds a repair order in the registry by the customer's phone number and returns it. This is used internally in the Controller to find the repair order associated with a customer when we need to get or update its details.
+        return repairOrderRegistry.findRepairOrderCustomerByNumber(number);
+    }
+
+    public void addDiagnosticReportToOrder(int number, String diagnosticReport) { //Adds a diagnostic report to the current repair order. This is used in the View to add a diagnostic report to the repair order after it has been created.
+        RepairOrder repairOrder = findRepairOrderByCustomerNumber(number);
+        repairOrder.setDiagnosticReport(diagnosticReport);
+    }
+    public void addRepairTaskToOrder(int number, String taskDescription, Double cost) { //Adds a repair task to the current repair order. This is used in the View to add a repair task to the repair order after it has been created.
+        RepairOrder repairOrder = findRepairOrderByCustomerNumber(number);
+        repairOrder.addRepairTask(taskDescription, cost);
+    }
+
+    public void updateRepairOrderStatus(int number, String newStatus) { //Updates the status of the current repair order. This is used in the View to update the status of the repair order after it has been created.
+        RepairOrder repairOrder = findRepairOrderByCustomerNumber(number);
+        repairOrder.setStatus(newStatus);
+    }
+
+    public void checkoutCustomer(int number) { //Checks out the customer by printing the details of the repair order and the total cost of the repair. This is used in the View to check out the customer after the repair has been completed.
+        RepairOrder repairOrder = findRepairOrderByCustomerNumber(number);
+        printer.printRepairOrderDetails(RepairOrderMapper.toDTO(repairOrder));
+    }
 }
 
