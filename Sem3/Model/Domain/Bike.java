@@ -42,13 +42,4 @@ public class Bike { //Represents a bike in the system, with properties for brand
     public void setOwnerNumber(int ownerNumber) { //Sets the bike's owner number to the given value (likely redundant)
         this.ownerNumber = ownerNumber;
     }
-
-    @Override //Didnt bother using
-    public String toString() {
-        return "Bike{" +
-                "model='" + model + '\'' +
-                ", serialNumber='" + serialNumber + '\'' +
-                ", ownerNumber=" + ownerNumber +
-                '}';
-    }
 }

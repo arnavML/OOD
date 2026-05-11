@@ -46,14 +46,4 @@ public class Customer { //Represents a customer in the system, with properties f
         this.bike = bike;
     }
 
-    @Override //Didnt bother using
-    public String toString() {
-        return "Customer{" +
-                "name='" + name + '\'' +
-                ", customerNumber='" + customerNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", bike=" + bike +
-                '}';
-    }
-
 }

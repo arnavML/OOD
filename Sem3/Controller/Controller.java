@@ -20,7 +20,6 @@ public class Controller { //The Controller class is responsible for handling the
         this.customerRegistry = customerRegistry;
         this.repairOrderRegistry = repairOrderRegistry;
         this.printer = printer;
-        System.out.println("Starting the Controller...");
         setupMockData();
     }
 

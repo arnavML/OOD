@@ -1,7 +1,5 @@
 package Sem3.Model.DTOs;
 
-import Sem3.Model.Domain.Bike;
-
 public class CustomerDTO {
         
     private String name;

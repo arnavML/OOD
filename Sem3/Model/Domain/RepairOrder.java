@@ -51,6 +51,10 @@ public class RepairOrder { //The RepairOrder class represents a repair order for
     public String getDate() { // Returns the date of the repair order
         return date;
     }
+    public void setDate(String date) { // Sets the date of the repair order to the given value
+        this.date = date;
+    }
+
 
     public String getStatus() { // Returns the status of the repair order
         return status;
@@ -60,22 +64,20 @@ public class RepairOrder { //The RepairOrder class represents a repair order for
         this.status = status;
     }
 
-    public void setDiagnosticReport(String diagnosticReport) { // Sets the diagnostic report of the repair order to the given value
-        this.diagnosticReport = diagnosticReport;
-    }
     public String getDiagnosticReport() { // Returns the diagnostic report of the repair order
         return diagnosticReport;
     }
 
-    @Override //Didnt bother using
-    public String toString() {
-        return "RepairOrder{" +
-                "orderPhoneNumber=" + orderPhoneNumber +
-                ", description='" + description + '\'' +
-                ", status='" + status + '\'' +
-                ", date='" + date + '\'' +
-                ", diagnosticReport='" + diagnosticReport + '\'' +
-                '}';
+    public void setDiagnosticReport(String diagnosticReport) { // Sets the diagnostic report of the repair order to the given value
+        this.diagnosticReport = diagnosticReport;
     }
+
+    public Customer getCustomer() { // Returns the customer associated with this repair order
+        return customer;
+    }
+    public Bike getBike() { // Returns the bike associated with this repair order
+        return bike;
+    }
+
 
 }
