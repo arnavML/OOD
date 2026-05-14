@@ -23,8 +23,7 @@ public class RepairOrder { //The RepairOrder class represents a repair order for
     }
 
 
-    public RepairOrder(Customer customer, int orderPhoneNumber, String description, String date, String status) { // Constructor for the RepairOrder class. It takes in a Customer object, the customer's phone number, a description of the repair, the date of the order, and the status of the order. It initializes the corresponding fields of the RepairOrder object and also sets the bike field to the bike associated with the customer.
-        
+    public RepairOrder(Customer customer, int orderPhoneNumber, String description, String date, String status) { // Constructor for the RepairOrder class. It takes in a Customer object, the customer's phone number, a description of the repair, the date of the order, and the status of the order. It initializes the corresponding fields of the RepairOrder object and also sets the bike field to the bike associated with the customer.    
         this.customer = customer;
         this.bike = customer.getBike();
         this.orderPhoneNumber = orderPhoneNumber;
