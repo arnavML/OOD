@@ -2,7 +2,7 @@ package Sem3.integration;
 import java.util.ArrayList;
 import java.util.List;
 
-import Sem3.Model.Domain.RepairOrder;
+import Sem3.model.domain.RepairOrder;
 
 public class RepairOrderRegistry { //The RepairOrderRegistry class is responsible for managing a collection of repair orders in the system. It provides methods for adding repair orders, finding repair orders by the customer's phone number, and retrieving a list of all repair orders.
 

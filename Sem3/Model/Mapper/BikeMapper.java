@@ -1,6 +1,6 @@
-package Sem3.Model.Mapper;
-import Sem3.Model.DTOs.BikeDTO;
-import Sem3.Model.Domain.Bike;
+package Sem3.model.mapper;
+import Sem3.model.dto.BikeDTO;
+import Sem3.model.domain.Bike;
 
 public class BikeMapper {
     public static BikeDTO toDTO(Bike bike) {

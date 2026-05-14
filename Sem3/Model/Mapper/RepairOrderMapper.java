@@ -1,23 +1,20 @@
-package Sem3.Model.Mapper;
+package Sem3.model.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import Sem3.Model.DTOs.RepairTaskDTO;
-import Sem3.Model.Domain.RepairOrder;
-import Sem3.Model.Domain.RepairTask;
-import Sem3.Model.DTOs.RepairOrderDTO;
+import Sem3.model.dto.RepairOrderDTO;
+import Sem3.model.dto.RepairTaskDTO;
+import Sem3.model.domain.RepairOrder;
+import Sem3.model.domain.RepairTask;
 
 
 public class RepairOrderMapper {
     
     public static RepairOrderDTO toDTO(RepairOrder repairOrder) {
         List<RepairTaskDTO> repairTasks = new ArrayList<>();
-        double totalCost = 0.0;
-        for (RepairTask repairTask : repairOrder.getRepairTasks()) {
-            repairTasks.add(RepairTaskMapper.toDTO(repairTask));
-            totalCost += repairTask.getCost();
+        for (RepairTask task : repairOrder.getRepairTasks()) {
+            repairTasks.add(RepairTaskMapper.toDTO(task));
         }
-
-        return new RepairOrderDTO(CustomerMapper.toDTO(repairOrder.getCustomer()), BikeMapper.toDTO(repairOrder.getBike()), repairOrder.getOrderPhoneNumber(), repairOrder.getDescription(), totalCost, repairOrder.getStatus(), repairOrder.getDate(), repairOrder.getDiagnosticReport(), repairTasks);
+        return new RepairOrderDTO(CustomerMapper.toDTO(repairOrder.getCustomer()), BikeMapper.toDTO(repairOrder.getBike()), repairOrder.getOrderPhoneNumber(), repairOrder.getDescription(), repairOrder.getTotalCost(), repairOrder.getStatus(), repairOrder.getDate(), repairOrder.getDiagnosticReport(), repairTasks);
     }
 }

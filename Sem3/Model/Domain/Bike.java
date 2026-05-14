@@ -1,4 +1,4 @@
-package Sem3.Model.Domain;
+package Sem3.model.domain;
 
 public class Bike { //Represents a bike in the system, with properties for brand, model, serial number, and owner number (which links the bike to its owner/customer in the system)
     private String brand;

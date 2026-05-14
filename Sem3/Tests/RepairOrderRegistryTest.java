@@ -1,4 +1,7 @@
-package Sem3;
+package Sem3.tests;
+
+import Sem3.model.domain.*;
+import Sem3.integration.*;
 
 import org.junit.Before;
 import org.junit.Test;

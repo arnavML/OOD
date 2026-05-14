@@ -1,6 +1,6 @@
-package Sem3.Model.Mapper;
-import Sem3.Model.DTOs.RepairTaskDTO;
-import Sem3.Model.Domain.RepairTask;
+package Sem3.model.mapper;
+import Sem3.model.dto.RepairTaskDTO;
+import Sem3.model.domain.RepairTask;
 
 public class RepairTaskMapper {
     

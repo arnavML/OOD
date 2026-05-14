@@ -1,6 +1,6 @@
-package Sem3.Model.Mapper;
-import Sem3.Model.DTOs.CustomerDTO;
-import Sem3.Model.Domain.Customer;
+package Sem3.model.mapper;
+import Sem3.model.dto.CustomerDTO;
+import Sem3.model.domain.Customer;
 
 
 public class CustomerMapper {

@@ -1,5 +1,5 @@
-package Sem3.View;
-import Sem3.Model.DTOs.*;
+package Sem3.view;
+import Sem3.model.dto.*;
 
 public class Printer { //The Printer class is responsible for printing the details of the repair order. It has a method printRepairOrderDetails that takes in the details of the repair order and prints them in a formatted way to the console
     public void printRepairOrderDetails(RepairOrderDTO repairOrder) { // Prints the details of the repair order in a formatted way to the console

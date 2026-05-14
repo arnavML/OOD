@@ -1,4 +1,4 @@
-package Sem3.Model.Domain;
+package Sem3.model.domain;
 
 public class RepairTask { //Represents a repair task that is performed as part of a repair order. It has properties for the description of the task and the cost of the task, along with getters and setters for these properties.
     private String description;

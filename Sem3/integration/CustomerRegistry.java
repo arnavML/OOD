@@ -1,6 +1,6 @@
 package Sem3.integration;
 
-import Sem3.Model.Domain.Customer;
+import Sem3.model.domain.Customer;
 
 public class CustomerRegistry { //The CustomerRegistry class is responsible for managing a collection of customers in the system. It provides methods for adding customers, finding customers by their unique customer number, and retrieving a list of all customers.
     

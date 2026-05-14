@@ -1,4 +1,4 @@
-package Sem3.Model.DTOs;
+package Sem3.model.dto;
 
 public class RepairTaskDTO {
     private String description;

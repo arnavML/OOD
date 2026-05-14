@@ -1,4 +1,4 @@
-package Sem3.Model.Domain;
+package Sem3.model.domain;
 
 public class Customer { //Represents a customer in the system, with properties for name, customer number, email, and bike (which links the customer to their bike in the system)
     

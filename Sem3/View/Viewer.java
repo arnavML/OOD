@@ -1,9 +1,7 @@
-package Sem3.View;
+package Sem3.view;
 
-import Sem3.Controller.Controller;
-import Sem3.Model.DTOs.*;
-import Sem3.Model.Domain.Bike;
-import Sem3.Model.Domain.Customer;
+import Sem3.controller.Controller;
+import Sem3.model.dto.*;
 
 public class Viewer { //The View class is responsible for interacting with the user and displaying information. It has a reference to the Controller, which it uses to perform actions and retrieve data to display.
 
@@ -33,7 +31,7 @@ public class Viewer { //The View class is responsible for interacting with the u
         System.out.println("System: Details are correct, proceeding to create repair order...");
 
         controller.createRepairOrder(numberToSearch, repairDescription, date, "pending");
-        RepairOrderDTO repairOrderDetails = controller.getRepairOrderDetails();
+        RepairOrderDTO repairOrderDetails = controller.getRepairOrderDetails(numberToSearch);
         System.out.println("System: Returned repair order details from getRepairOrderDetails method:");
         
         System.out.println("Technician View - Repair Order Details:");
@@ -46,7 +44,7 @@ public class Viewer { //The View class is responsible for interacting with the u
         controller.addRepairTaskToOrder(numberToSearch, "new Brake Pads", 150.0);
         controller.addRepairTaskToOrder(numberToSearch, "new Battery", 40.0);
 
-        repairOrderDetails = controller.getRepairOrderDetails();
+        repairOrderDetails = controller.getRepairOrderDetails(numberToSearch);
         System.out.println("System: Receptionist View - Updated Repair Order Details:");
         printRepairOrderDetails(repairOrderDetails);
         printRepairTasks(repairOrderDetails);

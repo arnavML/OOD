@@ -1,4 +1,4 @@
-package Sem3.Model.Domain;
+package Sem3.model.domain;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +10,7 @@ public class RepairOrder { //The RepairOrder class represents a repair order for
     private String status;
     private String date;
     private String diagnosticReport;
+    private int totalCost;
 
     private List<RepairTask> repairTasks = new ArrayList<>();
 
@@ -30,6 +31,14 @@ public class RepairOrder { //The RepairOrder class represents a repair order for
         this.description = description;
         this.date = date;
         this.status = status;
+    }
+
+    public int getTotalCost() { // Returns the total cost of the repair order by summing up the cost of all the repair tasks associated with this order
+        int totalCost = 0;
+        for (RepairTask task : repairTasks) {
+            totalCost += task.getCost();
+        }
+        return totalCost;
     }
 
     public int getOrderPhoneNumber() { // Returns the phone number associated with this repair order

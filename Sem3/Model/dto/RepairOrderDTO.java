@@ -1,4 +1,4 @@
-package Sem3.Model.DTOs;
+package Sem3.model.dto;
 
 import java.util.ArrayList;
 import java.util.List;
