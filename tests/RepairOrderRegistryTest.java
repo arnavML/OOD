@@ -1,4 +1,4 @@
-package Sem3.tests;
+package tests;
 
 import Sem3.model.domain.*;
 import Sem3.integration.*;
@@ -17,7 +17,7 @@ public class RepairOrderRegistryTest { // This class contains unit tests for the
     @Before
     public void setUp() { // Initializes a new RepairOrderRegistry and creates a test repair order before each test is run.
         registry = new RepairOrderRegistry();
-        testOrder = new RepairOrder(new Customer("Zlatan Ibrahimovic", 739988776, "zlatan@football.se", new Bike("Trek", "Marlin 8", "TRK909", 739988776)), 708123456, "Routine maintenance", "2024-06-01", "Pending");
+        testOrder = new RepairOrder(new Customer("Zlatan Ibrahimovic", 739988776, "zlatan@football.se", new Bike("Trek", "Marlin 8", "TRK909", 739988776)), "Routine maintenance", "2024-06-01", "Pending");
     }
 
     @Test
@@ -37,7 +37,7 @@ public class RepairOrderRegistryTest { // This class contains unit tests for the
         registry.addRepairOrder(testOrder);
         
         // Act: Try to find the repair order we just added
-        RepairOrder foundOrder = registry.findRepairOrderCustomerByNumber(708123456);
+        RepairOrder foundOrder = registry.findRepairOrderCustomerByNumber(739988776);
         
         // Assert: Prove we got the right repair order back
         assertNotNull("The returned repair order should not be null.", foundOrder);

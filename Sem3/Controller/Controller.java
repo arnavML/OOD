@@ -12,12 +12,13 @@ public class Controller { //The Controller class is responsible for handling the
     private CustomerRegistry customerRegistry;
     private RepairOrderRegistry repairOrderRegistry;
     private Printer printer;
-
+    private SessionManager sessionManager;
 
     public Controller(CustomerRegistry customerRegistry, RepairOrderRegistry repairOrderRegistry, Printer printer) { // Initializes the controller with the given customer registry, repair order registry, and printer. It also sets up some mock data for testing purposes.
         this.customerRegistry = customerRegistry;
         this.repairOrderRegistry = repairOrderRegistry;
         this.printer = printer;
+        this.sessionManager = new SessionManager(repairOrderRegistry);
     }
 
     //Method For searching for a customer by their phone number, which will be used in the View when the receptionist/technician searches for a customer
@@ -28,35 +29,35 @@ public class Controller { //The Controller class is responsible for handling the
     }
 
     public void createRepairOrder(int number, String description, String date, String status) { //Creates a new repair order for the given customer with the provided description and date. It also sets the current repair order variable to the newly created repair order so that we can use it later without having to search for it again.
-        RepairOrder newRepairOrder = new RepairOrder(customerRegistry.findCustomerByNumber(number), number, description, date, status);
+        RepairOrder newRepairOrder = new RepairOrder(customerRegistry.findCustomerByNumber(number), description, date, status);
         repairOrderRegistry.addRepairOrder(newRepairOrder);
+        sessionManager.startSession(number, newRepairOrder);
     }
 
     public RepairOrderDTO getRepairOrderDetails(int number) { //Gets the details of the current repair order and returns it as a RepairOrderDTO. This is used in the View to display the details of the repair order after it has been created.
-        return RepairOrderMapper.toDTO(repairOrderRegistry.findRepairOrderCustomerByNumber(number));
-    }
-
-    private RepairOrder findRepairOrderByCustomerNumber(int number) { //Finds a repair order in the registry by the customer's phone number and returns it. This is used internally in the Controller to find the repair order associated with a customer when we need to get or update its details.);
-        return repairOrderRegistry.findRepairOrderCustomerByNumber(number);
+        RepairOrder currentRepairOrder = sessionManager.getSearchedOrders(number);
+        return RepairOrderMapper.toDTO(currentRepairOrder);
     }
 
     public void addDiagnosticReportToOrder(int number, String diagnosticReport) { //Adds a diagnostic report to the current repair order. This is used in the View to add a diagnostic report to the repair order after it has been created.
-        RepairOrder repairOrder = findRepairOrderByCustomerNumber(number);
-        repairOrder.setDiagnosticReport(diagnosticReport);
+        RepairOrder currentRepairOrder = sessionManager.getSearchedOrders(number);
+        currentRepairOrder.setDiagnosticReport(diagnosticReport);
     }
+    
     public void addRepairTaskToOrder(int number, String taskDescription, double cost) { //Adds a repair task to the current repair order. This is used in the View to add a repair task to the repair order after it has been created.
-        RepairOrder repairOrder = findRepairOrderByCustomerNumber(number);
-        repairOrder.addRepairTask(taskDescription, cost);
+        RepairOrder currentRepairOrder = sessionManager.getSearchedOrders(number);
+        currentRepairOrder.addRepairTask(taskDescription, cost);
     }
 
     public void updateRepairOrderStatus(int number, String newStatus) { //Updates the status of the current repair order. This is used in the View to update the status of the repair order after it has been created.
-        RepairOrder repairOrder = findRepairOrderByCustomerNumber(number);
-        repairOrder.setStatus(newStatus);
+        RepairOrder currentRepairOrder = sessionManager.getSearchedOrders(number);
+        currentRepairOrder.setStatus(newStatus);
     }
 
     public void checkoutCustomer(int number) { //Checks out the customer by printing the details of the repair order and the total cost of the repair. This is used in the View to check out the customer after the repair has been completed.
-        RepairOrder repairOrder = findRepairOrderByCustomerNumber(number);
-        printer.printRepairOrderDetails(RepairOrderMapper.toDTO(repairOrder));
+        RepairOrder currentRepairOrder = sessionManager.getSearchedOrders(number);
+        printer.printRepairOrderDetails(RepairOrderMapper.toDTO(currentRepairOrder));
+        sessionManager.endSession(number);
     }
 }
 

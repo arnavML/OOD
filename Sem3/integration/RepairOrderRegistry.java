@@ -13,7 +13,7 @@ public class RepairOrderRegistry { //The RepairOrderRegistry class is responsibl
     }
     
     public List<RepairOrder> getAllRepairOrders() { // Returns a list of all repair orders in the registry
-        return repairOrders;
+        return new ArrayList<>(repairOrders);
     }
     
     public void addRepairOrder(RepairOrder repairOrder) { // Adds a new repair order to the registry by adding it to the list of repair orders

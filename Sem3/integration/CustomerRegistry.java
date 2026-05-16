@@ -24,7 +24,7 @@ public class CustomerRegistry { //The CustomerRegistry class is responsible for 
     }
 
     public java.util.List<Customer> getAllCustomers() { //Returns a list of all customers in the registry
-        return customers;
+        return new java.util.ArrayList<>(customers);
     }
 
 }

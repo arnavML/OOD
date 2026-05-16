@@ -15,6 +15,13 @@ public class RepairOrderMapper {
         for (RepairTask task : repairOrder.getRepairTasks()) {
             repairTasks.add(RepairTaskMapper.toDTO(task));
         }
-        return new RepairOrderDTO(CustomerMapper.toDTO(repairOrder.getCustomer()), BikeMapper.toDTO(repairOrder.getBike()), repairOrder.getOrderPhoneNumber(), repairOrder.getDescription(), repairOrder.getTotalCost(), repairOrder.getStatus(), repairOrder.getDate(), repairOrder.getDiagnosticReport(), repairTasks);
+
+        return new RepairOrderDTO.Builder(CustomerMapper.toDTO(repairOrder.getCustomer()), repairTasks)
+                .setDescription(repairOrder.getDescription())
+                .setTotalCost(repairOrder.getTotalCost())
+                .setStatus(repairOrder.getStatus())
+                .setDate(repairOrder.getDate())
+                .setDiagnosticReport(repairOrder.getDiagnosticReport())
+                .build();
     }
 }

@@ -1,6 +1,7 @@
 package Sem3.model.dto;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RepairOrderDTO {
@@ -12,54 +13,82 @@ public class RepairOrderDTO {
     private String status;
     private String date;
     private String diagnosticReport;
-
     private List<RepairTaskDTO> repairTasks = new ArrayList<>();
-
-    public List<RepairTaskDTO> getRepairTasks() {
-        return repairTasks;
-    }
     
-    public RepairOrderDTO(CustomerDTO customerDTO, BikeDTO bikeDTO, int orderPhoneNumber, String description, double totalCost, String status, String date, String diagnosticReport, List<RepairTaskDTO> repairTasks) {
-        this.customerDTO = customerDTO;
-        this.bikeDTO = bikeDTO;
-        this.orderPhoneNumber = orderPhoneNumber;
-        this.description = description;
-        this.totalCost = totalCost;
-        this.status = status;
-        this.date = date;
-        this.diagnosticReport = diagnosticReport;
-        this.repairTasks = repairTasks;
+    // Constructor for the RepairOrderDTO class
+    public RepairOrderDTO(Builder builder) {
+        this.customerDTO = builder.customerDTO;
+        this.bikeDTO = builder.customerDTO.getBike();
+        this.orderPhoneNumber = builder.customerDTO.getCustomerNumber();
+        this.repairTasks = builder.repairTasks;
+        this.description = builder.description;
+        this.totalCost = builder.totalCost;
+        this.status = builder.status;
+        this.date = builder.date;
+        this.diagnosticReport = builder.diagnosticReport;
     }
 
-    public int getOrderPhoneNumber() {
-        return orderPhoneNumber;
+
+    // Getters for the fields of the RepairOrderDTO class
+    public int getOrderPhoneNumber() { return orderPhoneNumber; }
+    public CustomerDTO getCustomerDTO() { return customerDTO; }
+    public BikeDTO getBikeDTO() { return bikeDTO; }
+    public String getDescription() { return description; }
+    public double getTotalCost() { return totalCost; }
+    public String getStatus() { return status; }
+    public String getDate() { return date; }
+    public String getDiagnosticReport() { return diagnosticReport; }
+
+    // Getter for the list of repair tasks. Unmodifiable
+    public List<RepairTaskDTO> getRepairTasks() {
+        return Collections.unmodifiableList(repairTasks);
     }
 
-    public CustomerDTO getCustomerDTO() {
-        return customerDTO;
+
+    // Builder class for constructing RepairOrderDTO objects using the builder pattern. It allows for setting the fields of the RepairOrderDTO in a flexible and readable way, and then building the final RepairOrderDTO object with the specified values.
+    public static class Builder {
+        private CustomerDTO customerDTO;
+        private List<RepairTaskDTO> repairTasks;
+        private String description;
+        private double totalCost;
+        private String status;
+        private String date;
+        private String diagnosticReport;
+
+
+        public Builder(CustomerDTO customerDTO, List<RepairTaskDTO> repairTasks) {
+            this.customerDTO = customerDTO;
+            this.repairTasks = repairTasks;
+        }
+
+        public Builder setDescription(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Builder setTotalCost(double totalCost) {
+            this.totalCost = totalCost;
+            return this;
+        }
+
+        public Builder setStatus(String status) {
+            this.status = status;
+            return this;
+        }
+
+        public Builder setDate(String date) {
+            this.date = date;
+            return this;
+        }
+
+        public Builder setDiagnosticReport(String diagnosticReport) {
+            this.diagnosticReport = diagnosticReport;
+            return this;
+        }
+
+        public RepairOrderDTO build() {
+            return new RepairOrderDTO(this);
+        }
     }
 
-    public BikeDTO getBikeDTO() {
-        return bikeDTO;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public double getTotalCost() {
-        return totalCost;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public String getDiagnosticReport() {
-        return diagnosticReport;
-    }
 }

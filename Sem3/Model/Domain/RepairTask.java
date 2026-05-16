@@ -24,12 +24,4 @@ public class RepairTask { //Represents a repair task that is performed as part o
     public void setCost(double cost) { //Sets the cost of the repair task to the given value
         this.cost = cost;
     }
-
-    @Override //Didnt bother using
-    public String toString() {
-        return "RepairTask{" +
-                "description='" + description + '\'' +
-                ", cost=" + cost +
-                '}';
-    }
 }

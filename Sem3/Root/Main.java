@@ -19,7 +19,7 @@ public class Main { //The Main class is the entry point of the application. It i
         controller = new Controller(customerRegistry, repairOrderRegistry, printer);
         view = new Viewer(controller);
         setupMockData() ; // Set up some mock data for testing purposes
-        view.Start(); // Start the view to accept user input and perform search // Can also start itself in initialization, but this way there have more control over when it starts for future use
+        view.start(); // Start the view to accept user input and perform search // Can also start itself in initialization, but this way there have more control over when it starts for future use
     }
 
     private static void setupMockData() { // Sets up some mock data for testing purposes by adding several customers to the customer registry. Each customer has a unique name, customer number, email, and bike.

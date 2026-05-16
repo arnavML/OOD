@@ -16,7 +16,7 @@ public class Viewer { //The View class is responsible for interacting with the u
     private String date = "2024-06-01"; // Example date
 
 
-    public void Start() { // Starts the view by calling the basic flow of the application, which includes receiving a bike from a customer, performing diagnostics and repair, and checking out the customer.
+    public void start() { // Starts the view by calling the basic flow of the application, which includes receiving a bike from a customer, performing diagnostics and repair, and checking out the customer.
         basicFlow();
     }
     private void basicFlow() { //Runs the sections of the basic flow
