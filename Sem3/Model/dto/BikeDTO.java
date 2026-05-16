@@ -4,17 +4,18 @@ public class BikeDTO {
     private String brand;
     private String model;
     private String serialNumber;
-    private int ownerNumber;
+    private int orderNumber;
 
-    public BikeDTO(String brand, String model, String serialNumber, int ownerNumber) {
+    public BikeDTO(String brand, String model, String serialNumber, int orderNumber) {
         this.brand = brand;
         this.model = model;
         this.serialNumber = serialNumber;
-        this.ownerNumber = ownerNumber;
+        this.orderNumber = orderNumber;
     }
 
+    //Getters
     public String getBrand() { return brand; }
     public String getModel() { return model; } 
     public String getSerialNumber() { return serialNumber; }
-    public int getOwnerNumber() { return ownerNumber; }
+    public int getOrderNumber() { return orderNumber; }
 }

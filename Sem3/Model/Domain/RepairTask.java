@@ -9,19 +9,12 @@ public class RepairTask { //Represents a repair task that is performed as part o
         this.cost = cost;
     }
 
-    public String getDescription() { //Returns the description of the repair task
-        return description; 
-    }
+    //Getters
+    public String getDescription() { return description; }
+    public double getCost() { return cost; }
 
-    public void setDescription(String description) {    //Sets the description of the repair task to the given value
-        this.description = description;
-    }
+    //Setters
+    public void setDescription(String description) { this.description = description; }
+    public void setCost(double cost) { this.cost = cost; }
 
-    public double getCost() { //Returns the cost of the repair task
-        return cost;
-    }
-
-    public void setCost(double cost) { //Sets the cost of the repair task to the given value
-        this.cost = cost;
-    }
 }

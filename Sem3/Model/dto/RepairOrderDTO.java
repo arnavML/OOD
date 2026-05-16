@@ -7,7 +7,7 @@ import java.util.List;
 public class RepairOrderDTO {
     private CustomerDTO customerDTO;
     private BikeDTO bikeDTO;
-    private int orderPhoneNumber;
+    private int orderNumber;
     private String description;
     private double totalCost; //new so we have total
     private String status;
@@ -18,8 +18,8 @@ public class RepairOrderDTO {
     // Constructor for the RepairOrderDTO class
     public RepairOrderDTO(Builder builder) {
         this.customerDTO = builder.customerDTO;
-        this.bikeDTO = builder.customerDTO.getBike();
-        this.orderPhoneNumber = builder.customerDTO.getCustomerNumber();
+        this.bikeDTO = builder.customerDTO.getBikeDTO();
+        this.orderNumber = builder.customerDTO.getOrderNumber();
         this.repairTasks = builder.repairTasks;
         this.description = builder.description;
         this.totalCost = builder.totalCost;
@@ -30,9 +30,9 @@ public class RepairOrderDTO {
 
 
     // Getters for the fields of the RepairOrderDTO class
-    public int getOrderPhoneNumber() { return orderPhoneNumber; }
     public CustomerDTO getCustomerDTO() { return customerDTO; }
     public BikeDTO getBikeDTO() { return bikeDTO; }
+    public int getOrderNumber() { return orderNumber; }
     public String getDescription() { return description; }
     public double getTotalCost() { return totalCost; }
     public String getStatus() { return status; }
@@ -43,7 +43,6 @@ public class RepairOrderDTO {
     public List<RepairTaskDTO> getRepairTasks() {
         return Collections.unmodifiableList(repairTasks);
     }
-
 
     // Builder class for constructing RepairOrderDTO objects using the builder pattern. It allows for setting the fields of the RepairOrderDTO in a flexible and readable way, and then building the final RepairOrderDTO object with the specified values.
     public static class Builder {

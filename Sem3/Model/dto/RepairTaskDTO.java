@@ -9,6 +9,7 @@ public class RepairTaskDTO {
         this.cost = cost;
     }
 
+    //Getters
     public String getDescription() { return description; }
     public double getCost() { return cost; }
 }

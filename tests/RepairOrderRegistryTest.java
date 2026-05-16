@@ -37,7 +37,7 @@ public class RepairOrderRegistryTest { // This class contains unit tests for the
         registry.addRepairOrder(testOrder);
         
         // Act: Try to find the repair order we just added
-        RepairOrder foundOrder = registry.findRepairOrderCustomerByNumber(739988776);
+        RepairOrder foundOrder = registry.findCustomerByNumber(739988776);
         
         // Assert: Prove we got the right repair order back
         assertNotNull("The returned repair order should not be null.", foundOrder);
@@ -50,7 +50,7 @@ public class RepairOrderRegistryTest { // This class contains unit tests for the
         registry.addRepairOrder(testOrder);
         
         // Act: Try to search for a completely different number
-        RepairOrder foundOrder = registry.findRepairOrderCustomerByNumber(999999999);
+        RepairOrder foundOrder = registry.findCustomerByNumber(999999999);
         
         // Assert: Prove the system correctly returns null when it can't find a match
         assertNull("Searching for a non-existent number should return null.", foundOrder);

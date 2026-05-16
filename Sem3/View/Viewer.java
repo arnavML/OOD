@@ -26,7 +26,7 @@ public class Viewer { //The View class is responsible for interacting with the u
 
         System.out.println("Customer search Details:");
         printCustomerDetails(customer);
-        printBikeDetails(customer.getBike());
+        printBikeDetails(customer.getBikeDTO());
 
         System.out.println("System: Details are correct, proceeding to create repair order...");
 
@@ -37,7 +37,7 @@ public class Viewer { //The View class is responsible for interacting with the u
         System.out.println("Technician View - Repair Order Details:");
         printRepairOrderDetails(repairOrderDetails);
         printCustomerDetails(customer);
-        printBikeDetails(customer.getBike());
+        printBikeDetails(customer.getBikeDTO());
 
         controller.addDiagnosticReportToOrder(numberToSearch, "The bike needs a new wheel, brake pads, and battery.");
         controller.addRepairTaskToOrder(numberToSearch, "new Wheel", 100.0);
@@ -48,16 +48,15 @@ public class Viewer { //The View class is responsible for interacting with the u
         System.out.println("System: Receptionist View - Updated Repair Order Details:");
         printRepairOrderDetails(repairOrderDetails);
         printRepairTasks(repairOrderDetails);
-
         controller.updateRepairOrderStatus(numberToSearch, "Accepted");
-
+        
         controller.checkoutCustomer(numberToSearch);
     }
 
     private void printCustomerDetails(CustomerDTO customer) { //Prints the details of the customer, including their name, customer number, email, and bike details. This is used in the View to display the customer's information after searching for them.
         System.out.println("---------------------------------------------------------------------------------" + "\n" + "Customer Details:");
         System.out.println("Name: " + customer.getName());
-        System.out.println("Customer Number: " + customer.getCustomerNumber()); //perhaps redundant since it's the same as the phone number, but it could be useful if we want to change the way we identify customers in the future
+        System.out.println("Customer Number: " + customer.getOrderNumber()); //perhaps redundant since it's the same as the phone number, but it could be useful if we want to change the way we identify customers in the future
         System.out.println("Email: " + customer.getEmail());
     }
     private void printBikeDetails(BikeDTO bike) { //Prints the details of the customer's bike, including the make, model, serial number, and owner's phone number. This is used in the View to display the bike's information after searching for the customer.
@@ -69,7 +68,7 @@ public class Viewer { //The View class is responsible for interacting with the u
 
     private void printRepairOrderDetails(RepairOrderDTO repairOrderDetails) { //Prints the details of the repair order, including the customer's name, bike make and model, repair description, date, and status. This is used in the View to display the repair order's information after it has been created.
         System.out.println("---------------------------------------------------------------------------------" + "\n" + "Repair Order Details:");
-        System.out.println("Customer Number: " + repairOrderDetails.getOrderPhoneNumber());
+        System.out.println("Customer Number: " + repairOrderDetails.getOrderNumber());
         System.out.println("Repair Description: " + repairOrderDetails.getDescription());
         System.out.println("Repair Date: " + repairOrderDetails.getDate());
         System.out.println("Repair Status: " + repairOrderDetails.getStatus());
@@ -82,5 +81,6 @@ public class Viewer { //The View class is responsible for interacting with the u
             System.out.println("Task Description: " + task.getDescription());
             System.out.println("Task Cost: " + task.getCost() + "\n");
         }
+        System.out.println("Total: " + repairOrderDetails.getTotalCost() + " SEK");
     }
 }

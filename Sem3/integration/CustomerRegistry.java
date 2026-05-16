@@ -1,30 +1,54 @@
 package Sem3.integration;
 
 import Sem3.model.domain.Customer;
+import java.util.ArrayList;
+import java.util.List;
 
-public class CustomerRegistry { //The CustomerRegistry class is responsible for managing a collection of customers in the system. It provides methods for adding customers, finding customers by their unique customer number, and retrieving a list of all customers.
-    
-    private java.util.List<Customer> customers;
+/**
+ * The CustomerRegistry class is responsible for managing a collection of customers in the system.
+ * It provides methods for adding customers, finding customers by their unique customer number, 
+ * and retrieving a list of all customers.
+ */
+public class CustomerRegistry {
 
-    public CustomerRegistry() { //Initializes the customer registry with an empty list of customers
-        this.customers = new java.util.ArrayList<>();
+    private List<Customer> customers = new ArrayList<>();
+
+    /**
+     * Initializes the customer registry with an empty list of customers.
+     */
+    public CustomerRegistry() {
+        this.customers = new ArrayList<>();
     }
 
-    public void addCustomer(Customer customer) { //Adds a new customer to the registry by adding them to the list of customers
+    /**
+     * Adds a new customer to the registry by adding them to the list of customers.
+     * @param customer The customer to add.
+     */
+    public void addCustomer(Customer customer) {
         customers.add(customer);
     }
 
-    public Customer findCustomerByNumber(int number) { //Searches through the list of customers to find a customer with a matching customer number. If found, it returns the customer; if not, it returns null.
+    /**
+     * Searches through the list of customers to find a customer with a matching customer number.
+     * If found, it returns the customer; if not, it returns null.
+     * @param number The customer number to search for.
+     * @return The found customer or null if not found.
+     */
+    public Customer findCustomerByNumber(int number) {
         for (Customer customer : customers) {
-            if (customer.getCustomerNumber() == number) {
+            if (customer.getOrderNumber() == number) {
                 return customer;
             }
         }
         return null;
     }
 
-    public java.util.List<Customer> getAllCustomers() { //Returns a list of all customers in the registry
-        return new java.util.ArrayList<>(customers);
+    /**
+     * Returns a copy of the list of all customers in the registry.
+     * @return A list of all customers.
+     */
+    public java.util.List<Customer> getAllCustomers() {
+        return new ArrayList<>(customers);
     }
 
 }

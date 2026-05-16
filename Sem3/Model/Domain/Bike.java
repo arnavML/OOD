@@ -1,45 +1,57 @@
 package Sem3.model.domain;
 
-public class Bike { //Represents a bike in the system, with properties for brand, model, serial number, and owner number (which links the bike to its owner/customer in the system)
+/**
+ * Represents a bike in the system, with properties for brand, model, 
+ * serial number, and owner number (which links the bike to its owner/customer in the system).
+ */
+public class Bike {
     private String brand;
     private String model;
     private String serialNumber;
-    private int ownerNumber;
+    private int OrderNumber;
 
-    public Bike(String brand, String model, String serialNumber, int ownerNumber) { //Sets the bike's brand, model, serial number, and owner number when a new bike is created
+    /**
+     * Constructs a new Bike with the specified brand, model, serial number, and owner number.
+     * @param brand The brand of the bike.
+     * @param model The model of the bike.
+     * @param serialNumber The unique serial number of the bike.
+     * @param orderNumber The phone number or ID of the owner.
+     */
+    public Bike(String brand, String model, String serialNumber, int orderNumber) {
         this.brand = brand;
         this.model = model;
         this.serialNumber = serialNumber;
-        this.ownerNumber = ownerNumber;
+        this.OrderNumber = orderNumber;
     }
 
-    public String getBrand() { //Returns the bike's brand
-        return brand;
-    }
-    public void setBrand(String brand) { //Sets the bike's brand to the given value
-        this.brand = brand;
-    }
-    public String getModel() { //Returns the bike's model
-        return model;
-    }
+    /** @return The brand of the bike. */
+    public String getBrand() { return brand; }
+    /** @return The model of the bike. */
+    public String getModel() { return model; }
+    /** @return The serial number of the bike. */
+    public String getSerialNumber() { return serialNumber; }
+    /** @return The phone number or ID of the owner. */
+    public int getOrderNumber() { return OrderNumber; }
 
-    public void setModel(String model) { //Sets the bike's model to the given value
-        this.model = model;
-    }
+    /**
+     * Sets the brand of the bike.
+     * @param brand The new brand of the bike.
+     */
+    public void setBrand(String brand) { this.brand = brand; }
+    /**
+    * Sets the model of the bike.
+    * @param model The new model of the bike.
+    */
+    public void setModel(String model) { this.model = model; }   
+    /**
+     * Sets the serial number of the bike.
+     * @param serialNumber The new serial number of the bike.
+     */ 
+    public void setSerialNumber(String serialNumber) { this.serialNumber = serialNumber; }
+    /**
+     * Sets the phone number or ID of the owner.
+     * @param orderNumber The new phone number or ID of the owner.
+     */
+    public void setOrderNumber(int orderNumber) { this.OrderNumber = orderNumber; }
 
-    public String getSerialNumber() { //Returns the bike's serial number
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) { //Sets the bike's serial number to the given value
-        this.serialNumber = serialNumber;
-    }
-
-    public int getOwnerNumber() { //Returns the bike's owner number, which is used to link the bike to its owner (customer) in the system
-        return ownerNumber;
-    }
-
-    public void setOwnerNumber(int ownerNumber) { //Sets the bike's owner number to the given value (likely redundant)
-        this.ownerNumber = ownerNumber;
-    }
 }
