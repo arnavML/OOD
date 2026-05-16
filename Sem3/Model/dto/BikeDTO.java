@@ -13,18 +13,8 @@ public class BikeDTO {
         this.ownerNumber = ownerNumber;
     }
 
-    public String getBrand() {
-        return brand;
-    }
-    public String getModel() {
-        return model;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public int getOwnerNumber() {
-        return ownerNumber;
-    }
+    public String getBrand() { return brand; }
+    public String getModel() { return model; } 
+    public String getSerialNumber() { return serialNumber; }
+    public int getOwnerNumber() { return ownerNumber; }
 }

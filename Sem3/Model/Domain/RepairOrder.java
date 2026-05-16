@@ -11,7 +11,7 @@ public class RepairOrder { //The RepairOrder class represents a repair order for
     private String date;
     private String diagnosticReport;
     
-
+    
     private List<RepairTask> repairTasks = new ArrayList<>();
 
     public List<RepairTask> getRepairTasks() { // Returns the list of repair tasks associated with this repair order
