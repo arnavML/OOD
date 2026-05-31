@@ -8,7 +8,7 @@ public class Bike {
     private String brand;
     private String model;
     private String serialNumber;
-    private int OrderNumber;
+    private int orderNumber;
 
     /**
      * Constructs a new Bike with the specified brand, model, serial number, and owner number.
@@ -21,7 +21,7 @@ public class Bike {
         this.brand = brand;
         this.model = model;
         this.serialNumber = serialNumber;
-        this.OrderNumber = orderNumber;
+        this.orderNumber = orderNumber;
     }
 
     /** @return The brand of the bike. */
@@ -31,7 +31,7 @@ public class Bike {
     /** @return The serial number of the bike. */
     public String getSerialNumber() { return serialNumber; }
     /** @return The phone number or ID of the owner. */
-    public int getOrderNumber() { return OrderNumber; }
+    public int getOrderNumber() { return orderNumber; }
 
     /**
      * Sets the brand of the bike.
@@ -52,6 +52,6 @@ public class Bike {
      * Sets the phone number or ID of the owner.
      * @param orderNumber The new phone number or ID of the owner.
      */
-    public void setOrderNumber(int orderNumber) { this.OrderNumber = orderNumber; }
+    public void setOrderNumber(int orderNumber) { this.orderNumber = orderNumber; }
 
 }

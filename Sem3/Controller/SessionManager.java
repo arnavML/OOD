@@ -42,7 +42,7 @@ public class SessionManager {
             return searchedRepairs.get(customerNumber);
         }
         else {
-            RepairOrder repairOrder = repairOrderRegistry.findCustomerByNumber(customerNumber);
+            RepairOrder repairOrder = repairOrderRegistry.findCustomerOrderByNumber(customerNumber);
             searchedRepairs.put(customerNumber, repairOrder);
             return repairOrder;
         }

@@ -40,7 +40,7 @@ public class RepairOrderRegistry {
      * @param number The customer's number.
      * @return The found repair order or null if not found.
      */
-    public RepairOrder findCustomerByNumber(int number) {
+    public RepairOrder findCustomerOrderByNumber(int number) {
         for (RepairOrder repairOrder : repairOrders) {
             if (repairOrder.getOrderNumber() == number) {
                 return repairOrder;
